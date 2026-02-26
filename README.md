@@ -51,3 +51,12 @@ save_as_peft(model, "peft_lora_adapter", expert_idx=0)
 - **Convergence**: Faster than standard LoRA due to frozen Reservoir.
 - **Memory**: Lower VRAM usage during training.
 - **Switching**: Millisecond-level adapter swapping for multi-tenant apps.
+
+## Advanced Training Examples
+We provide examples for common fine-tuning tasks:
+- **SFT (Supervised Fine-Tuning)**: See [examples/sft_training.py](examples/sft_training.py)
+- **GRPO (Group Relative Policy Optimization)**: See [examples/grpo_training.py](examples/grpo_training.py)
+
+## Google Colab
+Try ResLib directly in your browser with our tutorial notebook:
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/example/reslib/blob/main/notebooks/reslib_tutorial.ipynb)
