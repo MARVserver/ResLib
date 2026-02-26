@@ -59,4 +59,4 @@ We provide examples for common fine-tuning tasks:
 
 ## Google Colab
 Try ResLib directly in your browser with our tutorial notebook:
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/example/reslib/blob/main/notebooks/reslib_tutorial.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/MARVserver/ResLib/blob/main/notebooks/reslib_tutorial.ipynb)
