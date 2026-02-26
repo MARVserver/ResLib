@@ -57,6 +57,4 @@ We provide examples for common fine-tuning tasks:
 - **SFT (Supervised Fine-Tuning)**: See [examples/sft_training.py](examples/sft_training.py)
 - **GRPO (Group Relative Policy Optimization)**: See [examples/grpo_training.py](examples/grpo_training.py)
 
-## Google Colab
-Try ResLib directly in your browser with our tutorial notebook:
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/MARVserver/ResLib/blob/main/notebooks/reslib_tutorial.ipynb)
+
