@@ -1,0 +1,21 @@
+ninja_required_version = 1.3
+cxx = c++
+
+cflags = -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O3 -Wall -fPIC -I/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/torch/include -I/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -I/home/jules/.pyenv/versions/3.12.12/include/python3.12 -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H -DTORCH_EXTENSION_NAME=reslib_cpp -std=c++17
+cuda_dlink_post_cflags =
+sycl_dlink_post_cflags =
+ldflags =
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+
+
+
+
+
+
+build /app/build/temp.linux-x86_64-cpython-312/reslib/cpp/res_moelora.o: compile /app/reslib/cpp/res_moelora.cpp

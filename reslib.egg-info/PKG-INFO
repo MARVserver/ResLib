@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: reslib
+Version: 0.1.1
+Summary: High-performance library for Res-MoELoRA adaptation of LLMs
+Author: ResLib Team
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: torch
+Requires-Dist: transformers
+Requires-Dist: peft
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
