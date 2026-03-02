@@ -46,7 +46,10 @@ def inject_res_moelora(model: nn.Module, config: ResMoELoRAConfig):
             old_layer,
             config.reservoir_size,
             config.num_experts,
-            config.top_k
+            config.top_k,
+            lora_alpha=config.lora_alpha,
+            lora_dropout=config.lora_dropout,
+            activation=config.activation
         )
 
         # Replace the layer
@@ -67,13 +70,6 @@ def save_res_adapter(model: nn.Module, path: str):
         if isinstance(module, ResMoELoRALinear):
             state_dict[f"{name}.B"] = module.B.data
             state_dict[f"{name}.router.weight"] = module.router.weight.data
-            # We don't save A as it's a fixed buffer that can be re-generated if we know the seed,
-            # but for simplicity and since it's "Shared", we assume it's part of the config or re-initialized.
-            # Actually, standard PEFT saves A and B.
-            # If A is orthogonal and frozen, it should be saved or re-generated consistently.
-            # Let's save A too just in case, but the description says "frozen", and often these are re-initialized.
-            # If we don't save A, loading will use a NEW orthogonal matrix unless we fix the seed.
-            # I'll save A to be safe, even if it's frozen.
             state_dict[f"{name}.A"] = module.A.data
 
     # Ensure directory exists
