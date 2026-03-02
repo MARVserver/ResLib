@@ -58,3 +58,27 @@ We provide examples for common fine-tuning tasks:
 - **GRPO (Group Relative Policy Optimization)**: See [examples/grpo_training.py](examples/grpo_training.py)
 
 
+
+## Benchmark
+You can compare ResLib and standard LoRA performance using the provided benchmark script:
+```bash
+PYTHONPATH=. python3 examples/benchmark.py --model_id facebook/opt-125m --batch_size 2 --seq_len 128
+```
+
+## Theoretical Improvements
+ResLib now supports standard LoRA enhancements and Reservoir Computing principles:
+- **Scaling**: Uses `lora_alpha` to scale expert outputs (`alpha / reservoir_size`).
+- **Dropout**: Supports `lora_dropout` for better regularization.
+- **Activations**: Supports non-linear activations (`tanh`, `relu`) after the reservoir projection to increase expressive power.
+
+### Example with Improvements
+```python
+config = ResMoELoRAConfig(
+    reservoir_size=256,
+    num_experts=8,
+    lora_alpha=64,
+    lora_dropout=0.05,
+    activation="tanh"
+)
+model = inject_res_moelora(model, config)
+```
